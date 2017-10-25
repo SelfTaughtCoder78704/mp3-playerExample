@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+<head>
+ <meta charset="utf-8">
+ <title></title>
+ <style>
+ body {background:#666;}
+.btn #playz{
+  float:left;
+  
+}
+.btn #mutez{
+  float:left;
+}
+
+div{
+  border:5px solid red;
+  background-color:blue;
+  width:260px;
+  height:500px;
+  padding:10px;
+  margin-left:50%;
+}
+ </style>
+ <script>
+    var audio, playbtn, mutebtn, seek_bar;
+	function initAudioPlayer(){
+	audio = new Audio();
+	audio.src = "audio/kevingates.mp3";
+	audio.loop = true;
+	audio.play();
+	// Set object references
+	playbtn = document.getElementById("playz");
+	mutebtn = document.getElementById("mutez");
+	//Add Event Handling
+	playbtn.addEventListener("click", playPause);
+	mutebtn.addEventListener("click", mute);
+	//Functions
+	function playPause(){
+	  if (audio.paused){
+	    audio.play();
+		playbtn.src = ("pause.png");
+	  }else {
+	    audio.pause();
+		playbtn.src = ("play.png");
+	  }
+	}
+	function mute(){
+	  if(audio.muted){
+	    audio.muted = false;
+		mutebtn.src= ("muted.png");
+	  }else {
+	    audio.muted = true;
+		mutez.src = ("speaker.png");
+	  }
+	}
+}
+	window.addEventListener("load", initAudioPlayer);
+ </script>
+</head>
+<body>
+<div>
+<img src="http://lcaglobalmedia.com/wp-content/uploads/2014/09/How_to_book_Kevin_Gates.png"/>
+<h1 style="color:white; font-style:italic;">Kevin Gates: Satellites</h1>
+<button class="btn" id="playpausebtn"><img id="playz" src="pause.png" height="40px" width="40px"</button>
+<button class="btn" id="mutebtn"><img id="mutez" src="muted.png" height="40px" width="40px"</button>
+</div>
+</body>
+</html>
